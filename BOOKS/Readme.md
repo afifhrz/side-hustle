@@ -1,2 +1,1 @@
-Complete Material in pyecon.org/lecture/
-s
+Complete Material in https://pyecon.org/lecture/
