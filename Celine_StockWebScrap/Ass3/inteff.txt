@@ -1,0 +1,3528 @@
+. 
+. use human, clear
+
+. 
+. quietly probit br da##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(br), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .0546875   .0276752     1.98   0.048     .0004452    .1089298
+           2  |   .0190625   .0127534     1.49   0.135    -.0059336    .0440586
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |      .1375   .0259297     5.30   0.000     .0866788    .1883212
+          2  |    .101875   .0160067     6.36   0.000     .0705024    .1332476
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        1.37     0.2424
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |   -.035625   .0304723     -.0953497    .0240997
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit naive_truthtelling i.largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale)
+
+Conditional marginal effects                      Number of obs   =       4381
+Model VCE    : Robust
+
+Expression   : Pr(naive_truthtelling), predict()
+dy/dx w.r.t. : 1.largescale
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.largescale |  -.0262589   .0539167    -0.49   0.626    -.1319337    .0794159
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. quietly probit db_unjustified da##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3397
+Model VCE    : Robust
+
+Expression   : Pr(db_unjustified), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |  -.0445381   .0435771    -1.02   0.307    -.1299475    .0408714
+           2  |  -.0279746   .0166128    -1.68   0.092     -.060535    .0045859
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3397
+Model VCE    : Robust
+
+Expression   : Pr(db_unjustified), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |  -.0814917   .0440863    -1.85   0.065    -.1678992    .0049159
+          2  |  -.0649282     .01521    -4.27   0.000    -.0947392   -.0351171
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(db_unjustified), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.13     0.7225
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |   .0165635   .0466363      -.074842     .107969
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit truth da##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |  -.0839583   .0252239    -3.33   0.001    -.1333963   -.0345204
+           2  |       .065   .0341726     1.90   0.057    -.0019771    .1319771
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |   .1385417   .0323801     4.28   0.000     .0750778    .2020056
+          2  |      .2875   .0274871    10.46   0.000     .2336263    .3413737
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1       12.30     0.0005
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |   .1489583   .0424737      .0657115    .2322052
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit truth da##largescale c.Period c.lottery2##da c.lottery2##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |  -.0836406   .0251612    -3.32   0.001    -.1329556   -.0343255
+           2  |   .0653439   .0339549     1.92   0.054    -.0012064    .1318942
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |   .1390984   .0320743     4.34   0.000      .076234    .2019627
+          2  |   .2880828   .0275159    10.47   0.000     .2341526     .342013
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1       12.44     0.0004
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |   .1489844   .0422364      .0662026    .2317663
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |   .0041378      .0013     3.18   0.001     .0015899    .0066858
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |  -.1141674   .0031554   -36.18   0.000    -.1203519   -.1079829
+          2  |  -.1012076   .0049328   -20.52   0.000    -.1108757   -.0915394
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        4.82     0.0282
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |   .0129598   .0059042      .0013878    .0245319
+--------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |  -.1235149   .0107975   -11.44   0.000    -.1446777   -.1023522
+          2  |  -.1029392   .0019292   -53.36   0.000    -.1067204   -.0991581
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        3.52     0.0606
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |   .0205757   .0109637     -.0009128    .0420642
+--------------------------------------------------------------
+
+. 
+. quietly probit districtbias da##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |    .121875   .0367625     3.32   0.001     .0498219    .1939281
+           2  |   .0107292    .031592     0.34   0.734      -.05119    .0726483
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |  -.2166667   .0463065    -4.68   0.000    -.3074258   -.1259075
+          2  |  -.3278125   .0143261   -22.88   0.000    -.3558912   -.2997338
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        5.26     0.0218
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |  -.1111458    .048472     -.2061492   -.0161425
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit districtbias da##largescale c.Period c.lottery2##da c.lottery2##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .1224602   .0369775     3.31   0.001     .0499857    .1949348
+           2  |   .0097094   .0310648     0.31   0.755    -.0511764    .0705952
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |  -.2158522   .0460817    -4.68   0.000    -.3061706   -.1255338
+          2  |   -.328603   .0142712   -23.03   0.000    -.3565741   -.3006319
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        5.48     0.0192
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |  -.1127508   .0481478     -.2071188   -.0183828
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |  -.0040913   .0017682    -2.31   0.021    -.0075568   -.0006258
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .1206065   .0052131    23.14   0.000     .1103889     .130824
+          2  |   .0966366   .0061423    15.73   0.000      .084598    .1086752
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        8.74     0.0031
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |  -.0239699   .0081067     -.0398587   -.0080811
+--------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .1233354   .0117142    10.53   0.000      .100376    .1462948
+          2  |   .1042074    .003861    26.99   0.000       .09664    .1117748
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        2.40     0.1217
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |  -.0191281   .0123583     -.0433498    .0050937
+--------------------------------------------------------------
+
+. 
+. quietly probit fca_t da##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |  -.0686458    .017511    -3.92   0.000    -.1029667   -.0343249
+           2  |  -.0585417   .0154375    -3.79   0.000    -.0887986   -.0282847
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |  -.0885417   .0229704    -3.85   0.000    -.1335628   -.0435205
+          2  |  -.0784375   .0041607   -18.85   0.000    -.0865924   -.0702826
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.19     0.6651
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |   .0101042   .0233442     -.0356496    .0558579
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit fca_t da##largescale c.Period c.lottery2##da c.lottery2##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |  -.0679686   .0174648    -3.89   0.000    -.1021989   -.0337382
+           2  |  -.0589076   .0154369    -3.82   0.000    -.0891633   -.0286518
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |  -.0876053   .0230506    -3.80   0.000    -.1327836    -.042427
+          2  |  -.0785443   .0039381   -19.94   0.000    -.0862628   -.0708258
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.15     0.6976
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |    .009061   .0233173       -.03664     .054762
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |   2.95e-06   .0006271     0.00   0.996    -.0012261     .001232
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |  -.0532021   .0034047   -15.63   0.000    -.0598751   -.0465291
+          2  |  -.0162598   .0044704    -3.64   0.000    -.0250217    -.007498
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1       43.11     0.0000
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |   .0369423   .0056265      .0259145    .0479701
+--------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |  -.0499269   .0046066   -10.84   0.000    -.0589557    -.040898
+          2  |  -.0301722   .0034196    -8.82   0.000    -.0368746   -.0234698
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1       11.51     0.0007
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |   .0197547   .0058228      .0083421    .0311672
+--------------------------------------------------------------
+
+. 
+. quietly probit fca_r da##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .0566667   .0290158     1.95   0.051    -.0002032    .1135365
+           2  |  -.0492708   .0277356    -1.78   0.076    -.1036317      .00509
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |    -.29375   .0358458    -8.19   0.000    -.3640064   -.2234936
+          2  |  -.3996875   .0180627   -22.13   0.000    -.4350897   -.3642853
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        6.97     0.0083
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |  -.1059375   .0401395     -.1846095   -.0272655
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit fca_r da##largescale c.Period c.lottery2##da c.lottery2##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .0564786   .0291448     1.94   0.053    -.0006441    .1136013
+           2  |  -.0504097   .0276898    -1.82   0.069    -.1046807    .0038613
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |  -.2930642   .0358212    -8.18   0.000    -.3632724    -.222856
+          2  |  -.3999525   .0180114   -22.21   0.000    -.4352542   -.3646507
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        7.10     0.0077
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |  -.1068883   .0401049     -.1854923   -.0282842
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |  -.0046553   .0014244    -3.27   0.001    -.0074472   -.0018635
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .0745455   .0059276    12.58   0.000     .0629276    .0861633
+          2  |   .0785221   .0077619    10.12   0.000     .0633091    .0937352
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        0.17     0.6833
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |   .0039767   .0097472     -.0151275    .0230808
+--------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .0728885   .0136446     5.34   0.000     .0461457    .0996314
+          2  |   .0776274   .0048901    15.87   0.000      .068043    .0872117
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        0.11     0.7441
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |   .0047388   .0145185     -.0237168    .0331945
+--------------------------------------------------------------
+
+. 
+. quietly probit ir da##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .0422917   .0150453     2.81   0.005     .0128034    .0717799
+           2  |   .0122917   .0130436     0.94   0.346    -.0132733    .0378566
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |      .0875   .0176609     4.95   0.000     .0528852    .1221148
+          2  |      .0575   .0091972     6.25   0.000     .0394739    .0755261
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        2.27     0.1319
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |       -.03   .0199122     -.0690272    .0090272
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit ir da##largescale c.Period c.lottery2##da c.lottery2##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .0424637   .0150056     2.83   0.005     .0130533     .071874
+           2  |   .0124202   .0131711     0.94   0.346    -.0133947    .0382351
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |   .0875246   .0177796     4.92   0.000     .0526772     .122372
+          2  |   .0574811   .0092026     6.25   0.000     .0394444    .0755178
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        2.22     0.1366
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |  -.0300435   .0201834     -.0696023    .0095153
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |   .0010362   .0004336     2.39   0.017     .0001864     .001886
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .0319879   .0061795     5.18   0.000     .0198763    .0440995
+          2  |   .0044638   .0029376     1.52   0.129    -.0012939    .0102215
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1       15.89     0.0001
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |  -.0275241   .0069055     -.0410585   -.0139896
+--------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .0306027    .004111     7.44   0.000     .0225453      .03866
+          2  |   .0145128   .0042225     3.44   0.001     .0062369    .0227887
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        7.50     0.0062
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |  -.0160899   .0058755     -.0276057    -.004574
+--------------------------------------------------------------
+
+. 
+. use br_converge_allhuman, clear
+
+. 
+. quietly probit always_br da##largescale, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .0459375   .0247237     1.86   0.063    -.0025201    .0943951
+           2  |   .1403125   .0848646     1.65   0.098     -.026019     .306644
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |    .221875   .0724859     3.06   0.002     .0798053    .3639447
+          2  |     .31625   .0505871     6.25   0.000     .2171011    .4153989
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        1.14     0.2857
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |    .094375   .0883926     -.0788714    .2676214
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit always_br da##largescale c.Period, vce(cluster sessionid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .0459056   .0249934     1.84   0.066    -.0030805    .0948917
+           2  |   .1392151   .0848759     1.64   0.101    -.0271386    .3055687
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |   .2219875   .0725934     3.06   0.002      .079707    .3642679
+          2  |   .3152969   .0504455     6.25   0.000     .2164256    .4141683
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        1.11     0.2916
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |   .0933094   .0884786     -.0801054    .2667243
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       8320
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |   .0221459   .0014977    14.79   0.000     .0192104    .0250813
+------------------------------------------------------------------------------
+
+. 
+. use robot_emp, clear
+
+. 
+. quietly probit br da##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(br), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |     .10375   .0251028     4.13   0.000     .0545495    .1529505
+           2  |     .05625   .0205879     2.73   0.006     .0158986    .0966015
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |     .12375   .0253893     4.87   0.000      .073988     .173512
+          2  |     .07625   .0202335     3.77   0.000     .0365931     .115907
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        2.14     0.1434
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |     -.0475   .0324655     -.1111312    .0161313
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit naive_truthtelling i.largescale, vce(cluster subid)
+
+. margins, dydx(largescale)
+
+Conditional marginal effects                      Number of obs   =       1726
+Model VCE    : Robust
+
+Expression   : Pr(naive_truthtelling), predict()
+dy/dx w.r.t. : 1.largescale
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.largescale |  -.0998282    .031316    -3.19   0.001    -.1612065     -.03845
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. quietly probit db_unjustified da##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       1209
+Model VCE    : Robust
+
+Expression   : Pr(db_unjustified), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |  -.0506272    .035073    -1.44   0.149     -.119369    .0181146
+           2  |  -.0763529   .0276957    -2.76   0.006    -.1306355   -.0220702
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       1209
+Model VCE    : Robust
+
+Expression   : Pr(db_unjustified), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |  -.0117544   .0412347    -0.29   0.776     -.092573    .0690642
+          2  |  -.0374801   .0172298    -2.18   0.030    -.0712498   -.0037103
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(db_unjustified), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.33     0.5649
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |  -.0257257   .0446897     -.1133158    .0618645
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit truth da##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |    -.01875   .0703325    -0.27   0.790    -.1565991    .1190991
+           2  |     .04375   .0584143     0.75   0.454    -.0707398    .1582398
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |     .16375    .066557     2.46   0.014     .0333007    .2941993
+          2  |     .22625   .0626821     3.61   0.000     .1033953    .3491047
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.47     0.4942
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |      .0625   .0914269     -.1166935    .2416935
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit truth da##largescale c.Period c.lottery2##da c.lottery2##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |  -.0181742   .0702826    -0.26   0.796    -.1559255    .1195772
+           2  |   .0439504   .0584713     0.75   0.452    -.0706512     .158552
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |   .1641758   .0665257     2.47   0.014     .0337878    .2945638
+          2  |   .2263003   .0626749     3.61   0.000     .1034597    .3491409
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.46     0.4967
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |   .0621246    .091409     -.1170339     .241283
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |   .0029671   .0017499     1.70   0.090    -.0004626    .0063968
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |  -.1052132    .012826    -8.20   0.000    -.1303518   -.0800747
+          2  |  -.0562411   .0132708    -4.24   0.000    -.0822515   -.0302308
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        7.04     0.0080
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |   .0489721   .0184509      .0128089    .0851353
+--------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |  -.0742085   .0136016    -5.46   0.000    -.1008671   -.0475498
+          2  |  -.0872397   .0124741    -6.99   0.000    -.1116885   -.0627909
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(truth), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        0.50     0.4800
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |  -.0130312   .0184513     -.0491951    .0231327
+--------------------------------------------------------------
+
+. 
+. quietly probit districtbias da##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |     .01375   .0737972     0.19   0.852    -.1308899    .1583899
+           2  |     -.0525   .0514988    -1.02   0.308    -.1534357    .0484357
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |     -.2425   .0659778    -3.68   0.000    -.3718141   -.1131859
+          2  |    -.30875   .0611971    -5.05   0.000    -.4286941   -.1888059
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.54     0.4616
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |    -.06625   .0899897     -.2426266    .1101266
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit districtbias da##largescale c.Period c.lottery2##da c.lottery2##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .0133816   .0737443     0.18   0.856    -.1311545    .1579178
+           2  |  -.0527792   .0515605    -1.02   0.306    -.1538359    .0482775
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |   -.242793   .0659584    -3.68   0.000     -.372069   -.1135169
+          2  |  -.3089538   .0611741    -5.05   0.000    -.4288528   -.1890548
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.54     0.4621
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |  -.0661609   .0899582     -.2424758     .110154
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |   -.002724   .0015929    -1.71   0.087     -.005846     .000398
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .1046627   .0123835     8.45   0.000     .0803915     .128934
+          2  |   .0490571   .0132403     3.71   0.000     .0231065    .0750077
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        9.41     0.0022
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |  -.0556056   .0181249     -.0911298   -.0200814
+--------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .0740528   .0131496     5.63   0.000       .04828    .0998256
+          2  |   .0796585   .0124695     6.39   0.000     .0552188    .1040982
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(districtbias), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        0.10     0.7569
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |   .0056056   .0181125     -.0298942    .0411055
+--------------------------------------------------------------
+
+. 
+. quietly probit fca_t da##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |     .01125   .0291217     0.39   0.699    -.0458275    .0683275
+           2  |     -.0075   .0098215    -0.76   0.445    -.0267498    .0117498
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |     -.0825   .0202869    -4.07   0.000    -.1222615   -.0427385
+          2  |    -.10125   .0230864    -4.39   0.000    -.1464984   -.0560016
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.37     0.5418
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |    -.01875   .0307333     -.0789862    .0414862
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit fca_t da##largescale c.Period c.lottery2##da c.lottery2##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |    .010526   .0288331     0.37   0.715    -.0459859    .0670378
+           2  |  -.0064682   .0097186    -0.67   0.506    -.0255163    .0125799
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |  -.0828847   .0200525    -4.13   0.000    -.1221869   -.0435824
+          2  |  -.0998788   .0228573    -4.37   0.000    -.1446782   -.0550794
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.31     0.5758
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |  -.0169942   .0303748     -.0765277    .0425393
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |  -.0010582   .0012912    -0.82   0.412     -.003589    .0014725
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |  -.0503058   .0099003    -5.08   0.000    -.0697099   -.0309016
+          2  |  -.0206203   .0061963    -3.33   0.001    -.0327648   -.0084759
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        6.46     0.0110
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |   .0296854   .0116813      .0067905    .0525804
+--------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |  -.0351339   .0078883    -4.45   0.000    -.0505946   -.0196732
+          2  |  -.0358008   .0085917    -4.17   0.000    -.0526402   -.0189614
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_t), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        0.00     0.9544
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |  -.0006669   .0116509     -.0235023    .0221685
+--------------------------------------------------------------
+
+. 
+. quietly probit fca_r da##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |     .02625   .0539767     0.49   0.627    -.0795424    .1320424
+           2  |    -.06125   .0489653    -1.25   0.211    -.1572203    .0347203
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |     -.3025   .0553988    -5.46   0.000    -.4110796   -.1939204
+          2  |       -.39   .0473504    -8.24   0.000    -.4828051   -.2971949
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        1.44     0.2299
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |     -.0875   .0728772     -.2303367    .0553367
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit fca_r da##largescale c.Period c.lottery2##da c.lottery2##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .0260457   .0540086     0.48   0.630    -.0798093    .1319006
+           2  |  -.0617245    .048993    -1.26   0.208     -.157749       .0343
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |   -.302382   .0554397    -5.45   0.000    -.4110418   -.1937222
+          2  |  -.3901521   .0473809    -8.23   0.000     -.483017   -.2972873
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        1.45     0.2287
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |  -.0877702   .0729151     -.2306811    .0551408
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |  -.0053585   .0017387    -3.08   0.002    -.0087662   -.0019508
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |    .059534   .0140294     4.24   0.000     .0320369     .087031
+          2  |   .0300889   .0139884     2.15   0.031     .0026721    .0575056
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        2.21     0.1371
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |  -.0294451   .0198039     -.0682601    .0093699
+--------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .0429521   .0139533     3.08   0.002     .0156042       .0703
+          2  |   .0466663   .0140454     3.32   0.001     .0191379    .0741947
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(fca_r), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        0.04     0.8510
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |   .0037142   .0197784     -.0350508    .0424792
+--------------------------------------------------------------
+
+. 
+. quietly probit ir da##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |    -.01875   .0232796    -0.81   0.421    -.0643773    .0268773
+           2  |     -.0075   .0130493    -0.57   0.565    -.0330761    .0180761
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |     .04375   .0171552     2.55   0.011     .0101264    .0773735
+          2  |       .055   .0204432     2.69   0.007     .0149321    .0950679
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.18     0.6734
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |     .01125   .0266875     -.0410566    .0635566
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit ir da##largescale c.Period c.lottery2##da c.lottery2##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   -.019485   .0234718    -0.83   0.406    -.0654889     .026519
+           2  |  -.0076678   .0129605    -0.59   0.554      -.03307    .0177344
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |   .0439942   .0172146     2.56   0.011     .0102542    .0777342
+          2  |   .0558113   .0205202     2.72   0.007     .0155925    .0960302
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.19     0.6592
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |   .0118171   .0267949     -.0406998    .0643341
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |   .0026228   .0007411     3.54   0.000     .0011702    .0040753
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .0295487   .0077483     3.81   0.000     .0143624    .0447351
+          2  |   .0021219   .0044393     0.48   0.633    -.0065789    .0108228
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(da=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        9.43     0.0021
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |  -.0274268   .0089317     -.0449325   -.0099211
+--------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+lottery2     |
+         _at |
+          1  |   .0163093   .0063043     2.59   0.010     .0039531    .0286655
+          2  |   .0153569   .0062502     2.46   0.014     .0031068    .0276071
+------------------------------------------------------------------------------
+
+. margins, dydx(lottery2) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(ir), predict()
+dy/dx w.r.t. : lottery2
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+lottery2     |
+         _at |          1        0.01     0.9141
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+lottery2     |
+         _at |
+   (2 vs 1)  |  -.0009524   .0088276     -.0182543    .0163495
+--------------------------------------------------------------
+
+. 
+. use br_converge_erobot, clear
+
+. 
+. quietly probit always_br da##largescale, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |       .145   .0674484     2.15   0.032     .0128035    .2771965
+           2  |     .16625   .0776297     2.14   0.032     .0140985    .3184015
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Conditional marginal effects                      Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |     .20875   .0643762     3.24   0.001     .0825749    .3349251
+          2  |        .23   .0801958     2.87   0.004     .0728191    .3871809
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of conditional marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.04     0.8363
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |     .02125   .1028381     -.1803089    .2228089
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. 
+. quietly probit always_br da##largescale c.Period, vce(cluster subid)
+
+. margins, dydx(largescale) at(da=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.largescale
+
+1._at        : da              =           0
+
+2._at        : da              =           1
+
+-------------------------------------------------------------------------------
+              |            Delta-method
+              |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+--------------+----------------------------------------------------------------
+1.largescale  |
+          _at |
+           1  |   .1528493   .0672829     2.27   0.023     .0209772    .2847215
+           2  |   .1628872   .0764976     2.13   0.033     .0129547    .3128197
+-------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1))
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+1.da         |
+         _at |
+          1  |   .2152841    .064962     3.31   0.001      .087961    .3426072
+          2  |    .225322    .078419     2.87   0.004     .0716236    .3790204
+------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. margins, dydx(da) at(largescale=(0 1)) contrast(atcontrast(r._at) wald)
+
+Contrasts of average marginal effects
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : 1.da
+
+1._at        : largescale      =           0
+
+2._at        : largescale      =           1
+
+------------------------------------------------
+             |         df        chi2     P>chi2
+-------------+----------------------------------
+0b.da        |
+         _at |  (omitted)
+-------------+----------------------------------
+1.da         |
+         _at |          1        0.01     0.9214
+------------------------------------------------
+
+--------------------------------------------------------------
+             |   Contrast Delta-method
+             |      dy/dx   Std. Err.     [95% Conf. Interval]
+-------------+------------------------------------------------
+1.da         |
+         _at |
+   (2 vs 1)  |   .0100379   .1017529     -.1893942      .20947
+--------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the
+      base level.
+
+. margins, dydx(Period)
+
+Average marginal effects                          Number of obs   =       3200
+Model VCE    : Robust
+
+Expression   : Pr(always_br), predict()
+dy/dx w.r.t. : Period
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      Period |   .0353824   .0017675    20.02   0.000     .0319182    .0388466
+------------------------------------------------------------------------------
+
+. 
+. log close
