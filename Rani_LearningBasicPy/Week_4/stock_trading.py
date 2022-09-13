@@ -11,26 +11,44 @@
 
 import math
 
-def buy_stock():
-    return capital, quantity_share
-
-def sell_stock():
-    return capital, quantity_share
-
 def stock_trade(stock_price, capital, p):
 
-    for price in stock_price:
-        # make a comparison with previous loop
-        if something:
-            pass
-            # call buy function
+    starting_capital = capital
+    portofolio = 0
+    
+    for count, price in enumerate(stock_price):
+
+        quantity = round(capital * (1-p) / price)
+
+        if count == 0:
+            if math.floor(capital * (1-p)) <= price * quantity:
+                portofolio += quantity
+                capital -= price * quantity
+            else:
+                continue
         else:
-            # call sell function
-            pass
+            # make a comparison with previous loop
+            if stock_price[count - 1] > price:
+
+                if math.floor(capital * (1-p)) <= price * quantity:
+                    portofolio += quantity
+                    capital -= price * quantity
+                else:
+                    continue
+            elif stock_price[count - 1] < price:                
+                total_shares_to_be_sell = round((1-p)*portofolio)
+                
+                if total_shares_to_be_sell != 0 and total_shares_to_be_sell <= portofolio:
+                    capital += price*total_shares_to_be_sell
+                    portofolio -= total_shares_to_be_sell
     
     # calculation profit or loss
-    
-    return profit/loss
+    if stock_price:
+        end_capital = capital + portofolio*stock_price[-1]
+    else:
+        return 0
+
+    return end_capital - starting_capital
     
 
 def test_stock_trade():
@@ -53,3 +71,5 @@ def test_stock_trade_more():
     assert math.isclose( stock_trade(tuple(), 100, 0.5), 0.0 )
     print('all tests passed')
 
+test_stock_trade()
+test_stock_trade_more()
