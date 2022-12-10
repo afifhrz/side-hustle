@@ -1,0 +1,72 @@
+{% extends 'base_site.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h5 class="modal-title">Help</h5>
+                <div class="col-xl-12 col-xl-6 mt-4 text-center">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-info open-Stock" data-toggle="modal" data-target="#StockOption" style="width:300px;">
+                    What is Stock Option?
+                  </button>
+                </div>
+                <div class="col-xl-12 col-xl-6 mt-4 text-center">
+                  <button type="button" class="btn btn-info open-HowTo" data-toggle="modal" data-target="#HowTo" style="width:300px;">
+                    How to Calculate Stock Option?
+                  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="StockOption" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">What is Stock Option?</h5>
+        </div>
+        <div class="modal-body">
+          Stock Option is ...
+        </div>
+        {% comment %} <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div> {% endcomment %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="HowTo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">How to Calculate Stock Option?</h5>
+        </div>
+        <div class="modal-body">
+          You have to ...
+        </div>
+        {% comment %} <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div> {% endcomment %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block script %}
+<script>
+    $(document).on("click", ".open-Stock", function () {
+        $("#StockOption").modal('show');
+    });
+    $(document).on("click", ".open-HowTo", function () {
+      $("#HowTo").modal('show');
+    });
+</script>
+{% endblock script %}

@@ -1,0 +1,3 @@
+scipy
+django==4.1
+pandas

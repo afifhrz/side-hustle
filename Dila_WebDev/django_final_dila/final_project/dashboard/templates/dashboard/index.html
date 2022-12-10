@@ -1,0 +1,54 @@
+{% extends 'base_site.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Introduction</h5>
+                </div>
+                <div class="owl-carousel testimonial-carousel">
+                    <div class="testimonial-item text-center">
+                        <img class="img-fluid rounded-circle mx-auto my-4" src= {% static "img/testimonial-1.jpg" %} style="width: 100px; height: 100px;">
+                        
+                        <div class="m-n2">
+                            <a href="/history/">
+                                <button type="button" class="btn btn-primary rounded-pill m-2" style="width:150px;">
+                                    History
+                                </button>
+                            </a>
+                            <a href="/help/">
+                                <button type="button" class="btn btn-info rounded-pill m-2" style="width:150px;">
+                                    Help
+                                </button>
+                            </a>
+                        </div>
+
+                        <div class="m-n2">
+                            <a href="/calculation/">
+                                <button type="button" class="btn btn-secondary rounded-pill m-2" style="width:320px;">
+                                    Calculate
+                                </button>
+                            </a>
+                        </div>
+
+                        <h5 class="mt-4 mb-1">SOCA</h5>
+                        <p>Stock Option Calculation</p>
+                        <p class="mb-0">An Android-base application that serves to assist the public in calculating option value,<br>
+                            volatility, standard error, buying and selling value, the value gains and losses on the sole or<br>
+                            purchase of shares, as well as dividends and premiums.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+</script>
+{% endblock script %}

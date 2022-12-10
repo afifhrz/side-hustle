@@ -1,0 +1,82 @@
+{% extends 'base_site.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Stock Option Calculation</h5>
+                </div>
+                <div class="col-xl-12 col-xl-6">
+                    <div class="bg-light rounded h-100 p-4">
+                        <form action="calculate" method="post" enctype="multipart/form-data">{% csrf_token %}
+                            <div class="row mb-3">
+                                <label for="option_type" class="col-sm-3 col-form-label">Option Type</label>
+                                <div class="col-sm-9">
+                                    <select name="option_type" id="option_type" class="form-select" aria-label=".form-select-sm example" required>
+                                        <option selected="">Select Option Type</option>
+                                        <option value="call">Call Option</option>
+                                        <option value="put">Put Option</option>
+                                        <option value="call_put">Call & Put Option</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="stock_price" class="col-sm-3 col-form-label">Stock Price ($)</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="stock_price" name="stock_price" step=0.000001 required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="strike_price" class="col-sm-3 col-form-label">Strike Price ($)</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="strike_price" name="strike_price" step=0.000001 required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="interest_rate" class="col-sm-3 col-form-label">Interest Rate (%)</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="interest_rate" name="interest_rate" min=0 max=1 step=0.001 required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="time_exp_date" class="col-sm-3 col-form-label">Time of Expiration Date</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="time_exp_date" name="time_exp_date" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="iteration" class="col-sm-3 col-form-label">Iteration</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="iteration" name="iteration" min=5 step=1 required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="partition_of_time" class="col-sm-3 col-form-label">Partition of Time</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="partition_of_time" name="partition_of_time" step=0.0001 required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="datasetfile" class="col-sm-3 col-form-label">Dataset</label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control" id="dataid" name="datasetfile" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Calculate</button>
+                            {% comment %} <button type="reset">Reset</button> {% endcomment %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+</script>
+{% endblock script %}

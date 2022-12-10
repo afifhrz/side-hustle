@@ -1,0 +1,61 @@
+{% extends 'base_site.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h5 class="modal-title">History</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for data in data_result %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{data.date_simulate}}</h5><a href="/result/{{data.id}}"><p>Click for Details</p></a>
+                </div>
+                <div class="row g-4">
+                    <div class="col-xl-3 col-xl-3">
+                        <div class="bg-light rounded h-100 p-4">
+                            <p>Option Type</p>
+                            <p>Partition of Time</p>
+                            <p>Stock Price</p>
+                            <p>Volatility</p>
+                            <p>Iteration</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-xl-3">
+                        <div class="bg-light rounded h-100 p-4">
+                            <p>{% if data.option_type == 'call_put' %}
+                                Call & Put
+                                {% elif data.option_type == 'call' %}
+                                Call
+                                {% elif data.option_type == 'put' %}
+                                Put
+                                {% endif %}
+                            </p>
+                            <p>{{data.partition_of_time}}</p>
+                            <p>{{data.stock_price}}</p>
+                            <p>{{data.volatility}}</p>
+                            <p>{{data.iteration}}</p>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock content %}
+
+{% block script %}
+<script>
+</script>
+{% endblock script %}
