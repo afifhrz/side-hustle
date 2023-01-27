@@ -2,14 +2,19 @@
 from pyimagesearch.motion_detection.singlemotiondetector import SingleMotionDetector
 from imutils.video import VideoStream
 from flask import Response
-from flask import Flask
+from flask import Flask, jsonify, request
 from flask import render_template
+
 import threading
 import argparse
 import datetime
 import imutils
 import time
 import cv2
+import os
+from sqlalchemy import create_engine
+
+import pandas as pd
 
 # initialize the output frame and a lock used to ensure thread-safe
 # exchanges of the output frames (useful when multiple browsers/tabs
@@ -23,6 +28,7 @@ app = Flask(__name__)
 #vs = VideoStream(usePiCamera=1).start()
 vs = VideoStream(src=0).start()
 time.sleep(2.0)
+engine = create_engine("sqlite:///testdb.db")
 
 @app.route("/")
 def index():
@@ -72,6 +78,67 @@ def detect_motion(frameCount):
             # lock
             with lock:
                 outputFrame = frame.copy()
+
+@app.get("/registration")
+def register_face(frameCount=32):
+    return render_template("face_registration.html")
+
+@app.post("/appregistration")
+def registerApp():
+        data = request.get_json()
+        studentName = data['NameStudent']
+        
+        # grab global references to the video stream, output frame, and
+        # lock variables
+        global vs, outputFrame, lock
+        # initialize the motion detector and the total number of frames
+        # read thus far
+        num_sample = 160
+        # students = pd.read_excel("Student_Data.xlsx")
+        # Max_id = students['id'].max()
+        db = engine.connect()
+        
+        maxIdStudent = db.execute(
+            """SELECT MAX(ID) AS ID FROM master_student"""
+        )
+        maxIdStudent = list(maxIdStudent)[0][0]
+        if maxIdStudent == None:
+            maxIdStudent = 0
+        
+        count=0
+        parent_dir = "image_databases"
+        directory = str(maxIdStudent + 1)
+        path = os.path.join(parent_dir, directory)
+        os.makedirs(path)
+        
+        # loop over frames from the video stream
+        while True:
+            # read the next frame from the video stream, resize it,
+            # convert the frame to grayscale, and blur it
+            frame = vs.read()
+            frame = imutils.resize(frame, width=400)
+            
+            cv2.imwrite(path + '\%d.jpg' % count, frame)
+            count += 1
+            if count>num_sample:
+                break
+            
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            gray = cv2.GaussianBlur(gray, (7, 7), 0)
+            # grab the current timestamp and draw it on the frame
+            timestamp = datetime.datetime.now()
+            cv2.putText(frame, timestamp.strftime(
+                "%A %d %B %Y %I:%M:%S%p"), (10, frame.shape[0] - 10),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
+        
+        db.execute(
+            f"""INSERT INTO master_student (STUDENT_NAME) VALUES ('{studentName}') """
+            )
+        return jsonify({
+            "status":True
+        })
+            
+    
 
 def generate():
 	# grab global references to the output frame and lock variables
