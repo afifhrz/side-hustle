@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block title %}Face Recognition App{% endblock  %}
+
+{% block content %}
+<section id="home" class="intro-section">
+  <div class="container">
+    <div class="row align-items-center text-white" id="loader">
+      <!-- START THE CONTENT FOR THE INTRO  -->
+      <div class="col-md-6 intros text-start">
+        <h1 class="display-2">
+          <span class="display-2--intro">Training Page</span>
+          <span class="display-2--description lh-base">
+            This is a train page.
+          </span>
+        </h1>
+        
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="NameStudent" id="NameStudent" class="col-form-label"></label>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <button type="button"  class="rounded-pill btn-rounded" onclick="f_start()">Start Training!
+                    <span><i class="fas fa-arrow-right"></i></span>
+                </button>
+            </div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <br>
+  </div>
+</section>
+
+<div class="modal" id="loading_modal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <h1>Processing...</h1>
+        <!-- content modal-->
+        <img src={{url_for('static',filename="images/loading.gif")}} id="loading-indicator" />
+    </div>
+</div>
+{% endblock  %}
+
+{% block script %}
+<script>
+    function f_start(){
+        $.ajax({
+            type:"POST",
+            url: "{{url_for('trainStart')}}",
+            beforeSend: function() {
+                //$("#loading_modal").show();
+                document.getElementById("loader").innerHTML = document.getElementById("loading_modal").innerHTML;
+            },
+            success: function(data) {
+                //console.log(data.data);
+                window.location = "{{url_for('checkin')}}";
+            }
+        });
+        return false;
+    }
+</script>
+{% endblock  %}
