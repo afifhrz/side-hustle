@@ -45,7 +45,14 @@ function f_start(){
                   'Content-Type': 'application/json'
               }
           }).then((response) => response.json())
-          .then((data) => document.getElementById("NameStudent").innerHTML = "Welcome " + data.StudentName + " Your Attendance has been recorded!");
+          .then((data) => {
+              if (data.StudentName==false) {
+                document.getElementById("NameStudent").innerHTML = "Face not registered!";}
+              else {
+                document.getElementById("NameStudent").innerHTML = "Welcome " + data.StudentName + " Your Attendance has been recorded!";
+              }
+            }
+          );
           
   }
 </script>

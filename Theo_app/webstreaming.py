@@ -84,7 +84,7 @@ def recordCheckIn():
             })
         else:
             return jsonify({
-                "StudentName":"Database Not Found"
+                "StudentName":False
                 })
 
 @app.get("/train")
