@@ -1,0 +1,7 @@
+django==4.1
+selenium==4.4.3
+uvicorn==0.21.0
+mysqlclient==2.1.1
+# chromedriver==2.24.1
+# wget==3.2
+# unzip==1.0.0

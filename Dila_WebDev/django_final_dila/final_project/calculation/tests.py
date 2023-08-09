@@ -22,6 +22,7 @@ partition_of_time = 0.08
 # print(data_result.simulated_call_c.mean())
 
 data = pd.read_csv('final_project/calculation/tsla.csv')
+print(np.log(1+data.pct_change().fillna(0)))
 data['return'] = np.log(1+data.pct_change().fillna(0))
 data['variansi'] = (data['return']-data['return'].mean())**2
 variansi =(data.variansi.sum())/(data.shape[0]-1)

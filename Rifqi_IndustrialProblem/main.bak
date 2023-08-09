@@ -1,0 +1,41 @@
+program main;
+uses math;
+
+type
+        RealArray = Array of Real;
+
+function power_int(num1, num2: Integer): Integer;
+        var i, Result:Integer;
+        begin
+                Result := 1;
+                for i:=0 to num2 do
+                        Result:=Result*num1;
+                power_int:=Result
+        end;
+
+(*function that return all combinations and summed up*)
+function combination_util(feeder_array: array of real): RealArray;
+        var
+                i: Integer;
+                Result: Array of Real;
+        begin
+                SetLength(Result, power_int(2,Length(feeder_array)-1));
+                (*Result := [0]*(Power(2,Length(feeder_array))-1);*)
+                for i:= 1 to Length(feeder_array) do
+                        writeln(i);
+        end;
+
+(*function that return the *)
+
+const
+        power_source = 50;
+        power_loss = 50;
+var
+        feeder: array [1..25] of real;
+        feeder_combination: Array of Real;
+begin
+//        writeln(Length(feeder));
+        writeln(power_int(2,7));
+//        setLength(feeder_combination,power_int(2,Length(feeder))-1);
+//        feeder_combination:=combination_util(feeder);
+end.

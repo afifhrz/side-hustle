@@ -1,0 +1,11 @@
+version: '3.2'
+services:
+  scraptools :
+    build :
+      context : ./
+      dockerfile: ./Dockerfile
+    container_name: scraptools
+    ports:
+      - "2023:2023"
+    extra_hosts: 
+      - "host.docker.internal:host-gateway"

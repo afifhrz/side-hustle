@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 @csrf_protect
 def index(request):
     if request.method == "POST":
-        user = User.objects.create_user(request.POST['floatingText'], request.POST['floatingInput'], request.POST['floatingPassword'])
+        user = User.objects.create_user(request.POST['floatingText'], request.POST['floatingText'], request.POST['floatingPassword'])
     context = {
         'title' : 'Soca'
     }
