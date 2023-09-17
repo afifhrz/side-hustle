@@ -1,0 +1,143 @@
+<!--
+	  Title: MARY WIJAYA Home Page
+	  Author: MARY WIJAYA
+	  Student ID: 103510861
+	  Date Modified: 17.09.2023
+-->
+
+<!doctype html> 
+<html lang ="EN">
+<head> 
+	<meta charset="UTF-8">
+	<title>ARNE</title>
+	<meta name="description" content="a Warrington-based direct-to-consumer clothing brand/retailer">
+  	<meta name="keywords" content="Clothing design, Fashion, Sportwear">
+  	<meta name="author" content="Mary Wijaya">
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/grid.css">
+	<link rel="stylesheet" href="css/form.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<!-- DOCUMENT HEADER --> 		
+	<header>
+		<nav class="row">
+			<input type="checkbox">
+			<div class="nav-icon">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<p>A R N E</p>
+			<div id="menu-list">
+				<a href="/contact.html" class="split">Contact Us</a>
+				<a href="/about.html" class="split">About Us</a>
+				<a href="/products.html" class="split">Products</a>
+				<a href="/homepage.html" class="split">Homepage</a>
+			</div>
+		</nav>
+	</header>
+
+	<section id="secForm">
+		<div class="row">
+			<br>
+			<h1>Contact Us</h1>
+			<br>
+		</div>
+		<!-- Start of lead capture and contact form -->
+		<form id="contactForm" name="contactForm" method="get" action="homepage.html">
+			<div class="row">
+				<div class="two-col">
+					<input type="text" name="fname" id="fname" autocomplete="given-name" autofocus placeholder="First Name">
+				</div>
+				<div class="two-col">
+					<input type="text" name="surname" id="surname" autocomplete="family-name" autofocus placeholder="Last Name">
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-col">
+					<input type="email" name="email" id="email" required placeholder="Email">
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-col">
+					<input type="tel" name="contact" id="contact" placeholder="Phone" inputmode="numeric">
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-col">
+					<input type="number" name="postcode" id="postcode" placeholder="Postcode">
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-col">
+					<input type="text" name="media" id="media" list="mediaTypes" placeholder="Media">
+					<datalist id="mediaTypes">
+						<option value="image/png">
+						<option value="image/jpeg">
+						<option value="image/svg+xml">
+						<option value="text/css">
+						<option value="text/javascript">
+					</datalist>
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-col">
+					<textarea type="text" name="message" id="message" placeholder="Leave a Message" style="max-width: 100%;" cols="1500" rows="3"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="two-col">
+					<input type="submit" class="cta-button cta-gradient" value="Submit">
+				</div>
+			</div>
+		</form>
+		<!-- END OF FORM -->
+	</section>
+	
+	<!-- DOCUMENT FOOTER -->
+	<footer> 
+		<div>
+			<div class="col-2" style="padding-bottom: 10px;">
+				<div class="col-2">
+					<h3><b>Information</b></h3>
+					<br>
+					FAQ's <br>
+					Delivery Info <br>
+					Return & Refunds <br>
+					Careers
+				</div>
+				<div class="col-2">
+					<br>
+					<br>
+					<br>
+					<br>
+					Product Care <br>
+					Terms & Condition <br>
+					Tracking Order
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="col">
+					<h3><b>Socials</b></h3>
+					<div class="row">
+						<div class="col-10" style="padding: 0;"><img src="img/facebook.png" alt="" srcset="" width="48px" height="auto"></div>
+						<div class="col-10" style="padding: 0;"><img src="img/tiktok.png" alt="" srcset="" width="48px" height="auto"></div>
+						<div class="col-10" style="padding: 0;"><img src="img/instagram.png" alt="" srcset="" width="48px" height="auto"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<img src="img/apple_google_play.jpg" alt="" srcset="" width="100%">
+		</div>
+		<div class="copyright">
+			<p> 
+				Copyright &copy; MARY WIJAYA 2023
+			</p>
+		</div>
+	</footer>
+</body>
+</html>

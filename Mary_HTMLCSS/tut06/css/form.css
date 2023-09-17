@@ -1,0 +1,135 @@
+/*
+	File Name: 		form.css
+	Description:	CSS grid template for formatting layouts
+	Created by: 	Giuseppe Pantaleo
+	Modified by:	ENTER YOUR NAME HERE
+	Date Created:	31/08/2021
+	Date Modified:  01/09/2021
+*/
+
+/* Grid begins here */
+*{
+	box-sizing:border-box;
+}
+
+.row{
+	position:relative;
+	width:100%;
+	max-width:960px;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+}
+
+.col{
+	width:100%;
+	float: left;
+	padding:.5em;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+	.row{
+		width: 85%;
+		padding: 0;
+	}
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {	
+	.one.col				{width:10%;}
+	.two.col				{width:20%;}
+	.three.col				{width:30%;}
+	.four.col				{width:40%;}
+	.five.col				{width:50%;}
+	.six.col				{width:60%;}
+	.seven.col				{width:70%;}
+	.eight.col				{width:80%;}
+	.nine.col				{width:90%;}
+	.ten.col				{width:100%;margin-left:0;}
+	
+	.one-quarter.col		{width:25%;}
+	.one-third.col			{width:33.33%;}
+	.one-half.col			{width:50%;}
+	.two-thirds.col 		{width:66.66%;}
+	
+	.offset-by-one.col		{margin-left:10%;}
+	.offset-by-two.col		{margin-left:20%;}
+	.offset-by-three.col	{margin-left:30%;}
+	.offset-by-four.col		{margin-left:40%;}
+	.offset-by-five.col		{margin-left:50%;}
+	.offset-by-six.col		{margin-left:60%;}
+	.offset-by-seven.col	{margin-left:70%;}
+	.offset-by-eight.col	{margin-left:80%;}
+	.offset-by-nine.col		{margin-left:90%;}
+	.offset-by-ten.col		{margin-left:100%;}	
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
+
+/* Self Clearing Rows */
+.row:after{
+	content: "";
+	display:table;
+	clear:both;
+}
+
+/* Semantic */
+nav{
+	z-index:9999;
+}
+
+/* Form */
+form, input, label{
+	display:block;
+	width:100%;
+	z-index:1;
+}
+
+/* Self-Directed Study 2 Part A */
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="tel"]:focus, 
+input[type="date"]:focus,
+input[type="range"]:focus {
+	outline: 2px red solid;
+}
+
+input:required {
+	border: 1px red solid !important;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="date"] {
+	padding: 1.2em;
+}
+
+@media (max-width: 550px) {	
+	div:has(input[type="submit"],input[type="reset"]){
+		display: grid;
+	}
+}
+
+@media (max-width: 1000px) {	
+	input[type="submit"], input[type="reset"] {
+		width: 100%;
+	}
+}
+
+input[type="submit"]:hover, 
+input[type="reset"]:hover {
+	cursor: pointer;
+}
+
+.empty-field-message {
+	display: none;
+}

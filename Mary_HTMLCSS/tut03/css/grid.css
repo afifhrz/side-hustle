@@ -1,0 +1,84 @@
+/* CSS Document */
+/* DESKTOP */
+@media screen and (min-width: 768px){
+	.col-2 {
+		float: left;
+		width: 50%;
+		padding-left: 10px;
+	}
+
+	.col-3 {
+		float: left;
+		width: 33%;
+		padding-left: 10px;
+	}
+
+	.col-4 {
+		padding: 10px 50px 20px 10px;
+		float: left;
+  		width: 24.99999%;
+	}
+
+	.channel-icon {
+		width: 75%;
+		height: auto;
+	}
+
+	.col-10 {
+		float: left;
+		width: 10%;
+		padding: 0px 20px 55px;
+	}
+} /* End of desktop media rule */
+
+@media screen and (max-width: 768px){
+	.col-4 {
+		margin: 6px 0;
+		float: left;
+  		width: 49.99999%;
+		padding: 0px 50px 0px 10px;
+	}
+
+	section article:nth-child(3) div:nth-child(4){
+		padding: 25px 0 0;
+	}
+	
+	section article:nth-child(3) div:nth-child(5){
+		padding: 25px 0 0;
+	}
+	
+	section article:nth-child(3) div:nth-child(6){
+		padding: 25px 0 0;
+	}
+	
+	.channel-icon {
+		width: 50%;
+		height: auto;
+	}
+
+	.col-4:after {
+		content: "";
+		display: table;
+		clear: both;
+	  }
+
+	.col-10{
+		width: 25%;
+		float: left;
+		padding: 0px 10px 55px;
+	}
+}
+
+article {
+    padding: 10px;
+}
+
+.row > hr, .row > h3 {
+    width: 100%;
+}
+
+.cta-gradient {
+	background-image: linear-gradient(rgb(255, 0, 0), rgba(0, 0, 0, 0));
+	background-color: rgb(89, 12, 12);
+	color: white;
+}

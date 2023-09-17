@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Contact Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+	<header>
+		<h1>
+			MARY WIJAYA's Home Page
+		</h1>
+	</header>
+	<nav class="row">
+		<input type="checkbox">
+		<div class="nav-icon">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div id="menu-list">
+			<div class="column"> <a href="index.html">  Home </a> </div>
+			<div class="column"> <a href="courses.html">  Courses </a> </div>
+			<div class="column"> <a href="about.html">  About </a> </div>
+		</div>
+	</nav>
+	
+	<section>
+		<h1>
+			Talk to Mary Wijaya
+		</h1>
+		<script>
+			var fname=window.prompt("Please enter your first name:");
+			document.write("<p>Please complete the form below, " + fname + ".</p>");
+		</script>
+		<!-- Start of lead capture and contact form -->
+		<form id="contactForm" name="contactForm" method="get" action="index.html">
+			<div class="row">
+				<div class="five col">
+					<label for="fname">First Name:</label>
+					<input type="text" name="fname" id="fname" autocomplete="given-name" autofocus>
+				</div>
+				<div class="five col">
+					<label for="surname">Surname:</label>
+					<input type="text" name="surname" id="surname" autocomplete="family-name" autofocus>
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-half col">
+					<label for="email">Email: <span class="empty-field-message">[Please enter an email address.]</span></label>
+					<input type="email" name="email" id="email" required>
+				</div>
+				<div class="one-half col">
+					<label for="contact">Contact Number:</label>
+					<input type="tel" name="contact" id="contact" placeholder="0499 999 999" inputmode="numeric">
+				</div>
+			</div>
+			<div class="row">
+				<div class="five col">
+					<label for="date">Date:</label>
+					<input type="date" name="date" id="date">
+				</div>
+				<div class="five col">
+					<label for="media">Media Type:</label>
+					<input type="text" name="media" id="media" list="mediaTypes">
+					<datalist id="mediaTypes">
+						<option value="image/png">
+						<option value="image/jpeg">
+						<option value="image/svg+xml">
+						<option value="text/css">
+						<option value="text/javascript">
+					</datalist>
+				</div>
+			</div>
+			<div class="row">
+				<div class="ten col">
+					<label for="rating">Enter a rating(1-10):</label>
+					<input type="range" name="rating" id="rating" min="1" max="10">
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-quarter col">
+					<input type="submit" class="cta-button cta-gradient" value="Talk to Me" onclick="test()">
+				</div>
+				<div class="one-quarter col">
+					<input type="reset" class="cta-button" value="Clear Form">
+				</div>
+			</div>
+		</form>
+		<!-- END OF FORM -->
+	</section>
+	
+	<footer> 
+		<a href="https://www.swinburne.edu.au/" target="_blank" rel=”nofollow”>
+			<p> 
+				Copyright &copy; MARY WIJAYA 2021
+			</p>
+		</a>
+	</footer>
+</body>
+<script src="scripts/form.js"></script>
+</html>
