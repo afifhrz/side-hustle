@@ -139,6 +139,11 @@
 		text-align: center;
 		font-size: larger;
 	}
+
+	.col-2 > .paragraph {
+		padding: 75px;
+	}
+
 	
 } /* End of desktop media rule */
 
@@ -265,4 +270,21 @@ footer > div > .col-2 {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Arial', sans-serif;
+}
+
+.buy {
+    display: none;
+    position: relative;
+    text-align: center;
+    top: -250px;
+	font-size: larger;
+}
+
+.gallery:hover div.buy {
+    display: block;
+	cursor: pointer;
+}
+
+.gallery:hover {
+	opacity: 0.5;
 }

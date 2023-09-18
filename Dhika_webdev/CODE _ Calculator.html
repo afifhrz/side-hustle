@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>    CODE | Calculator
+</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="./CODE _ Calculator_files/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./CODE _ Calculator_files/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="./CODE _ Calculator_files/jquery-jvectormap.css">
+    <link rel="stylesheet" href="./CODE _ Calculator_files/flag-icon.min.css">
+    <link rel="stylesheet" href="./CODE _ Calculator_files/owl.carousel.min.css">
+    <link rel="stylesheet" href="./CODE _ Calculator_files/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="http://localhost:8000/theme/images/favicon.png">
+    <link rel="stylesheet" href="./CODE _ Calculator_files/jquery.dataTables.min.css">
+    <script src="./CODE _ Calculator_files/jquery-3.6.0.min.js.download"></script>
+    <script src="./CODE _ Calculator_files/jquery.dataTables.min.js.download"></script>
+        <!-- Include the jQuery library (required by Toastr) -->
+    <script src="./CODE _ Calculator_files/jquery-3.6.0.min.js.download"></script>
+
+    <!-- Include the Toastr library -->
+    <link rel="stylesheet" href="./CODE _ Calculator_files/toastr.min.css">
+    <script src="./CODE _ Calculator_files/toastr.min.js.download"></script>
+
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+                <a class="sidebar-brand brand-logo" href="http://localhost:8000/dashboard"><img src="./CODE _ Calculator_files/code.png" alt="logo"></a>
+                
+            </div>
+            <ul class="nav">
+                                    <li class="nav-item nav-category">
+                        <span class="nav-link">Navigation</span>
+                    </li>
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" href="http://localhost:8000/dashboard">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-speedometer"></i>
+                            </span>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                                                                    <li class="nav-item nav-category">
+                        <span class="nav-link">Projects</span>
+                    </li>
+                    <li class="nav-item menu-items active">
+                        <a class="nav-link" href="http://localhost:8000/formcalcmodify">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-playlist-play"></i>
+                            </span>
+                            <span class="menu-title">Calculator</span>
+                        </a>
+                    </li>
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" href="http://localhost:8000/formsaveusersmodify">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-playlist-play"></i>
+                            </span>
+                            <span class="menu-title">Form</span>
+                        </a>
+                    </li>
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" href="http://localhost:8000/formresultmodify">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-playlist-play"></i>
+                            </span>
+                            <span class="menu-title">Form Result</span>
+                        </a>
+                    </li>
+                                                            </ul>
+
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_navbar.html -->
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo-mini" href="http://localhost:8000/index.html"><img src="./CODE _ Calculator_files/logo-mini2.png" alt="logo"></a>
+                </div>
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item w-100">
+                            <p style="text-align: right;">Monday, August 21, 2023</p>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" id="profileDropdown" href="http://localhost:8000/formcalcmodify#" data-toggle="dropdown">
+                                <div class="navbar-profile">
+                                    <img class="img-xs rounded-circle" src="./CODE _ Calculator_files/face28.png" alt="">
+                                    Student
+                                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                                                                
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item" href="http://localhost:8000/formcalcmodify#" data-toggle="modal" data-target="#logoutModal">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-logout text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Logout</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="mdi mdi-format-line-spacing"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                        <div class="row">
+        <div class="col-lg-6 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h2><b>Calculator</b></h2><br>
+                    <form action="http://localhost:8000/calcmodify" method="POST">
+                        <input type="hidden" name="_token" value="AxEI5ZmvjqiCYR3M9ng8JtvHoSEtIj3MuRibTPQV">                        <table>
+                            <thead>
+                                <tr>
+                                    <td width="40%">Input your 1<sup>st</sup> number</td>
+                                    <td width="10%" align="center">:</td>
+                                    <td><input type="text" name="first" style="width:100px;" class="form-control" value="">
+                                        <span style="color:red"></span>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Input your 2<sup>nd</sup> number</td>
+                                    <td align="center">:</td>
+                                    <td><input type="text" name="second" style="width:100px;" class="form-control" value="">
+                                        <span style="color:red"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Select operator</td>
+                                    <td align="center">:</td>
+                                    <td><select class="form-control" name="op" style="width:150px;" value="">
+                                            <option value="">Select operator</option>
+                                            <option value="+">+</option>
+                                            <option value="-">-</option>
+                                            <option value="*">*</option>
+                                            <option value="/">/</option>
+                                        </select><span style="color:red"></span></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td align="center"></td>
+                                    <td style="padding-top:20px; padding-bottom:20px;"><button type="submit" class="btn btn-success">Calculate</button></td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h2><b>Calculator</b></h2><br>
+                    <form action="http://localhost:8000/calcmodify" method="POST">
+                        <input type="hidden" name="_token" value="AxEI5ZmvjqiCYR3M9ng8JtvHoSEtIj3MuRibTPQV">                        <table>
+                            <thead>
+                                <tr>
+                                    <td width="40%">Input your 1<sup>st</sup> number</td>
+                                    <td width="10%" align="center">:</td>
+                                    <td><input type="text" name="first" style="width:100px;" class="form-control" value="">
+                                        <span style="color:red"></span>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Input your 2<sup>nd</sup> number</td>
+                                    <td align="center">:</td>
+                                    <td><input type="text" name="second" style="width:100px;" class="form-control" value="">
+                                        <span style="color:red"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Select operator</td>
+                                    <td align="center">:</td>
+                                    <td><select class="form-control" name="op" style="width:150px;" value="">
+                                            <option value="">Select operator</option>
+                                            <option value="+">+</option>
+                                            <option value="-">-</option>
+                                            <option value="*">*</option>
+                                            <option value="/">/</option>
+                                        </select><span style="color:red"></span></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td align="center"></td>
+                                    <td style="padding-top:20px; padding-bottom:20px;"><button type="submit" class="btn btn-success">Calculate</button></td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+                    <!-- content-wrapper ends -->
+                    <!-- partial:partials/_footer.html -->
+                    <footer class="footer clearfix" style="position: fixed; bottom: 0; width: 100%;">
+                        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">© 2023.
+                                ID.</span>
+                            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span> -->
+                        </div>
+                    </footer>
+                    <!-- partial -->
+                </div>
+                <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+        <!-- plugins:js -->
+
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Click "Logout" below if you wanna end.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="http://localhost:8000/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="changepassword" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 align="center">Ganti Password</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="http://localhost:8000/changepassword">
+                            <input type="hidden" name="_token" value="AxEI5ZmvjqiCYR3M9ng8JtvHoSEtIj3MuRibTPQV">
+                            <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" class="txtid" name="id" value="25" readonly="">
+                            <div class="form-group">
+                                <label>Username: </label>
+                                <input type="text" class="form-control" value="student" name="email" readonly="">
+                            </div>
+                            <div class="form-group">
+                                <label>Password Lama: </label>
+                                <div class="input-group" id="show_hide_password">
+                                    <input type="password" class="form-control" name="oldpassword" autocomplete="new-password" required="">
+                                    <div class="input-group-addon" style="margin-top:10px;margin-left:10px">
+                                        <a href="http://localhost:8000/formcalcmodify"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password Baru: </label>
+                                <div class="input-group" id="show_hide_password2">
+                                    <input type="password" class="form-control" name="password" autocomplete="new-password" required="">
+                                    <div class="input-group-addon" style="margin-top:10px;margin-left:10px">
+                                        <a href="http://localhost:8000/formcalcmodify"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </form></div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-sm btn-selesai btn-primary">Ganti Password</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <script src="./CODE _ Calculator_files/vendor.bundle.base.js.download"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page -->
+        <script src="./CODE _ Calculator_files/Chart.min.js.download"></script>
+        <script src="./CODE _ Calculator_files/progressbar.min.js.download"></script>
+        <script src="./CODE _ Calculator_files/jquery-jvectormap.min.js.download"></script>
+        <script src="./CODE _ Calculator_files/jquery-jvectormap-world-mill-en.js.download"></script>
+        <script src="./CODE _ Calculator_files/owl.carousel.min.js.download"></script>
+        <!-- End plugin js for this page -->
+        <!-- inject:js -->
+        <script src="./CODE _ Calculator_files/off-canvas.js.download"></script>
+        <script src="./CODE _ Calculator_files/hoverable-collapse.js.download"></script>
+        <script src="./CODE _ Calculator_files/misc.js.download"></script>
+        <script src="./CODE _ Calculator_files/settings.js.download"></script>
+        <script src="./CODE _ Calculator_files/todolist.js.download"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page -->
+        <script src="./CODE _ Calculator_files/dashboard.js.download"></script>
+        <!-- End custom js for this page -->
+        
+
+
+
+</div></body></html>

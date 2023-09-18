@@ -31,6 +31,14 @@
 	}
 } /* End of desktop media rule */
 
+@media screen and (max-width: 1235px){
+	#aboutus2_p {
+		float: left;
+		width: 100%;
+		padding-left: 10px;
+	}
+}
+
 @media screen and (max-width: 768px){
 	.col-4 {
 		margin: 6px 0;
@@ -89,3 +97,4 @@ article {
 .row > hr, .row > h3 {
     width: 100%;
 }
+

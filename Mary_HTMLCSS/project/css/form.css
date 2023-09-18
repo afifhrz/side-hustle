@@ -18,6 +18,14 @@
 		padding-left: 50px;
 	}
 
+	#secFormSignUp {
+		padding: 0 450px
+	}
+
+	#secFormSignUp > .row h1 {
+		text-align: center;
+	}
+
 } /* End of desktop media rule */
 
 @media screen and (max-width: 768px){
@@ -35,6 +43,14 @@
 
 	#secForm {
 		padding: 0 50px;
+	}
+	
+	#secFormSignUp {
+		padding: 50px;
+	}
+
+	#secFormSignUp > .row h1 {
+		text-align: center;
 	}
 }
 
@@ -58,6 +74,7 @@ input[type="text"],
 input[type="email"], 
 input[type="tel"], 
 input[type="number"],
+input[type="date"],
 input[type="submit"] {
 	padding: 1.2em;
 }
@@ -70,6 +87,7 @@ button[type="submit"] {
 
 button[type="submit"] > a {
 	text-decoration: none;
+	color: black;
 }
 
 button[type="submit"]:hover {
