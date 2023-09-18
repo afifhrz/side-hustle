@@ -105,7 +105,7 @@
 	
 	nav a {
 		display: block;
-		width: 7em;
+		width: 9em;
 		padding: .75em;
 		margin: 1em auto;
 		color: white;
@@ -135,8 +135,9 @@
 	}
 
 	.paragraph {
-		padding: 50px 175px;
+		padding: 150px 175px;
 		text-align: center;
+		font-size: larger;
 	}
 	
 } /* End of desktop media rule */

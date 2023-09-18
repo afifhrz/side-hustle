@@ -62,6 +62,24 @@ input[type="submit"] {
 	padding: 1.2em;
 }
 
+button[type="submit"] {
+	padding: 1.2em;
+	background-color: white;
+	border: 0cap;
+}
+
+button[type="submit"] > a {
+	text-decoration: none;
+}
+
+button[type="submit"]:hover {
+	background-color: grey;
+}
+
+button[type="submit"] > a:hover {
+	color: white;
+}
+
 @media (max-width: 768px) {	
 	div:has(input[type="submit"],input[type="reset"]){
 		display: grid;
