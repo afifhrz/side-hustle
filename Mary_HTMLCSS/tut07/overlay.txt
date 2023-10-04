@@ -1,0 +1,15 @@
+	<!-- OVERLAY PANEL --> 
+		<div id="overlay">
+			<article>
+				<p id="msgDetails"></p>
+				<div class="row">
+					<div class="three col">
+						<a class="cta-button cta-gradient" onclick="<!-- ADD FUNCTION HERE -->">OK <span>&rarr;</span></a>
+					</div>
+					<div class="offset-by-two three col">
+						<a class="cta-button" onclick="<!-- ADD FUNCTION HERE -->">Cancel <span>&rarr;</span></a>
+					</div>
+				</div>
+			</article>
+		</div>
+	<!-- END OF OVERLAY -->
